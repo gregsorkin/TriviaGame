@@ -1,0 +1,70 @@
+body {
+    line-height: 1.5;
+    letter-spacing: .16px;
+}
+
+@font-face {
+    font-family: "Akbar";
+    src: url("akbar.ttf");
+}
+
+.wrapper {
+    background-image: url("../images/simpsonsClouds.jpg");
+    max-width: 960px;
+    margin: 0 auto;
+    border-style: solid;
+    border-color: navy;
+    border-width: 5px;
+    margin-top: 100px;
+
+}
+
+.triviaBox {
+    border-style: solid;
+    border-width: 2px;
+    border-color: navy;
+    max-width: 900px;
+    background-color: rgba(255, 255, 224, 0.75);
+    font-family: "Akbar";
+}
+
+.triviaHeader {
+    align: center;
+    box-sizing: content-box;
+    padding: 15px 30px;
+    font-family: "Akbar";
+}
+
+.logo {
+    width: 35%;
+    height: 20%;
+}
+
+#akbarTitle {
+    font-family: "Akbar";
+    font-size: 42px;
+}
+
+.btn-primary, .startBtn, .reset {
+    background-color: red;
+    color: white;
+    font-family: "Akbar";
+    font-size: 26px;
+    padding: 10px 15px;
+    margin-left: 165px;
+}
+
+.btn-primary:hover, .startBtn:hover, .reset:hover {
+    background-color: crimson;
+    color: yellow; 
+    font-family: "Akbar";
+    font-size: 26px;
+    padding: 10px 15px;
+    margin-left: 165px;
+}
+
+#timer {
+    font-family: "Akbar";
+    align: center;
+    padding: 10px 150px;
+}

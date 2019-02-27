@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta lang="eng-us" charset="UTF-8">
+
+        <title>The Simpsons Trivia Game | Greg Sorkin</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <!-- Normalize CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
+        <!-- My Style CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    </head>
+
+    <body>
+        <!-- Header Bar -->
+        <div class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+            <a class="navbar-brand" href="index.html">Greg Sorkin</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="index.html">About <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="portfolio.html">Portfolio</a>
+                    <a class="nav-item nav-link" href="contact.html">Contact</a>
+                </div>
+            </div>
+        </nav>
+        </div>
+
+        <!-- Game Section -->
+        <div class="p-5 container wrapper">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 triviaBox"> 
+                    <div class="container">
+                        <br>
+                        <p class="triviaHeader"><img src="assets/images/logo.png" class="img-responsive logo"><span id="akbarTitle"> Trivia Game</span></p>
+                        <br>
+                        <button class='btn btn-primary' id='startBtn'>Start Game</button>
+                        <div class="timer">
+                            <p id="timer"></p>
+                        </div>
+                        <div class="question">
+                            <div id="question"></div>
+                            <div id="correctIncorrect"></div>
+                            <div id="gifs"></div>
+                        </div>
+                        <div class="choices">
+                            <div id="choices"></div>
+                            <div id="answer"></div>
+                        </div>
+                        <div class="scorecard">
+                            <div id="scorecardCorrect"></div>
+                            <div id="scorecardIncorrect"></div>
+                            <div id="scorecardUnanswered"></div>
+                            <div id="startOver"></div>
+                        </div>
+                    </div>        
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="fixed-bottom footer">
+            <footer class="page-footer font-small mdb-color lighten-1 pt-4">
+                <div class="footer-copyright text-center py-3">&copy; 2019 Copyright | Greg Sorkin </div>
+            </footer>
+        </div>
+
+        <!-- jQuery API -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- JavaScript File-->
+        <script type="text/javascript" src="assets/javascript/app.js"></script>
+    </body>
+</html>
