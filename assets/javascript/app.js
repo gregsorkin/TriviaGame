@@ -67,24 +67,27 @@ let quiz = [{
 let correct = 0;
 let incorrect = 0;
 let unanswered = 0;
-let clock = 16;
+let clock;
 let timer;
+let options;
 let questionNum = 0;
 let notAnswered;
 let answered;
+let userGuess;
+
 
 
 // FUNCTIONS
 
-/* Buttons Hide Functions */
+/* (Re)Start Buttons and Hide Functions */
 $("#startBtn").click(function() {
 	$(this).hide();
-	resetGame();
+    resetGame();
 });
 
 $("#startOver").click(function() {
 	$(this).hide();
-	resetGame();
+    resetGame();
 });
 
 /* Reset Functions */
@@ -94,56 +97,61 @@ function resetGame() {
     incorrect = 0;
     unanswered = 0;
     questionNum = 0;
+    countdown();
     $(".reset").hide();
     $("#scorecardCorrect").empty();
     $("#scorecardInorrect").empty();
     $("#scorecardUnanswered").empty();
+    showQuestion();
 }
 
 /* Timer Function */
-timer = setInterval(countdown, 1000); 
+
 
 function countdown() {
-  clock--;
+    clock = 16;
+    if (clock > 2) {  
+        $("#timer").text("Time Remaining: " + clock + " Seconds");
+    } else {
+        $("#timer").text("Time Remaining: " + clock + " Second");
+    }
+    timer = setInterval(countdownTicker, 1000);
+}
+
+function countdownTicker() {
+    clock--;
     if (clock < 1) {
         clearInterval(timer);
-        clock = 16;
-        answered = false;
-    }
-  if (clock > 2) {  
-    $("#timer").text("Time Remaining: " + clock + " Seconds");
-  } else {
-    $("#timer").text("Time Remaining: " + clock + " Second");
+        $("#correctIncorrect").text("Out of time!");
+        unanswered++;
+        nextQuestion();
+    }    
   }
-
-  if (clock < 1) {
-    $("#correctIncorrect").text("Out of time!");
-    unanswered++;
-    nextQuestion();
-
-  }
-}
 
 
 /* Question Array Loops */
 function showQuestion () {
-    for (let i = 0; i < quiz.length; i++) {
-        $("#question").text(quiz[this.counter]);
-        console.log(quiz[i].question);
-        for (let j = 0; j < quiz[i].choices.length; j++) {
-            $("#choices").text(quiz[i].choices[j]);
-            console.log(quiz[i].choices);
-        }
+    countdown();
+    $("#question").text(quiz[this.questionNum]);
+        //console.log(quiz[questionNum].question);
+    for (let j = 0; j < 4; j++) {
+        let options = $("<div>");
+        options.text(quiz[questionNum].choices);
+        $("#choices").append(options);
+        //console.log(quiz[j].choices);
     }
-    $("#answer").click(text("The correct answer is " + quiz[i].answer));
-    if (this === (quiz[i].answer)) {
+
+    $("#answer").click("The correct answer is " + quiz[questionNum].answer);
+    if (this === (quiz[questionNum].answer)) {
         $("#correctIncorrect").text("You got it!");
         correct++;
-    } else {
+    } else if (this !== (quiz[questionNum].answer)) {
         $("#correctIncorrect").text("Good guess! But the answer is " + quiz[i].answer);
         incorrect++;
+    } else {
+        unanswered++;
     }
-    $("#gifs").click(append(quiz[i].gif));
+    $("#gifs").click(append(quiz[questionNum].gif));
 }
 
 function nextQuestion() {
@@ -151,14 +159,14 @@ function nextQuestion() {
     $("#gif").empty();
     $("#correctIncorrect").empty();
     $("#answer").empty();
-    setTimeout(showQuestion(), 5000);
-    if (quiz[i].length === 10) {
+    setTimeout(showQuestion, 5000);
+    if (questionNum === 10) {
         scorecard();
     }
 }
 
 
-/* Final Scoreboard */
+/* Final Scorecard */
 function scorecard() {
         $("#gif").empty();
         $("#correctIncorrect").empty();
@@ -172,7 +180,3 @@ function scorecard() {
         $("#startOver").addClass("reset");
         $("#startOver").html("Play Again?");
 }
-
-
-
-

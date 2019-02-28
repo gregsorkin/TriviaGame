@@ -45,6 +45,22 @@ body {
     font-size: 42px;
 }
 
+#question {
+    font-family: "Akbar";
+    font-size: 30px;
+    text-align: center;
+}
+
+#choices {
+    font-family: "Akbar";
+    font-size: 24px;
+    text-align: center;
+}
+
+#choices.hover {
+    background-color: yellow;
+}
+
 .btn-primary, .startBtn, .reset {
     background-color: red;
     color: white;
