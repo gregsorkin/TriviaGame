@@ -29,7 +29,6 @@ body {
 }
 
 .triviaHeader {
-    align: center;
     box-sizing: content-box;
     padding: 15px 30px;
     font-family: "Akbar";
@@ -59,6 +58,14 @@ body {
 
 #choices.hover {
     background-color: yellow;
+    padding: 10px 15px;
+}
+
+.selection.hover {
+    background-color: lightcoral;
+    font-family: "Akbar";
+    color: yellow;
+    padding: 10px 15px;
 }
 
 .btn-primary, .startBtn, .reset {
@@ -81,6 +88,9 @@ body {
 
 #timer {
     font-family: "Akbar";
-    align: center;
+    padding: 10px 150px;
+}
+
+#gifs {
     padding: 10px 150px;
 }
